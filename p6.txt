@@ -1,0 +1,130 @@
+6.Explain and show the execution of basic network commands with different
+options for each commands:
+ifconfig, ping, netstat, Whois, dig, nslookup, traceroute, host,arp, hostname
+
+Software: Ubuntu 20. 0 4 LTS
+
+Sudo apt install net-tools
+
+1. ifconfig :
+Linux ifconfig stands for interface configurator. It is one of the most basic commands used in network inspection. ifconfig is used 
+to initialize an interface, configure it with an IP address, and enable or disable it. It is also used to display the route and the network interface.
+Basic information displayed upon using ifconfig are:
+1. IP address
+2. MAC address
+3. MTU(Maximum Transmission Unit)
+To get all the details using ifconfig
+Ifconfig
+Using this command, you can get details of a specific interface. This is shown below.
+Commands:
+ifconfig eno1
+ifconfig lo
+
+ip command:
+The ip addr command without any subcommands shows the network interface
+information, including the associated IP addresses:
+Syntax:
+ip addr
+
+ip -4 addr (IP Command is used to show network interface information)
+ip -6 addr  To set the size of MTU
+By default, MTU has a size of 1500. This can be however set externally by the user using
+ifconfig.
+Syntax: Ifconfig eno1 mtu xxxx
+
+2. Netstat:
+netstat(Network Statistics) is the command that is used to display routing table,
+connection information, the status of ports. i.e. it gives details information about
+network activity on Linux System.
+a. netstat -r Using -r flag will display the routing table
+b. netstat –a use -a flag to show listening and non-listening sockets(TCP+ UDP)
+c. netstat –at to show all TCP socket
+d. netstat –l to show all active ports
+e. netstat –u to show all UDP socket
+
+3 .Whois
+The whois command displays information about a website's record. You may get all the
+information about a website regarding its registration and owner's information.
+Syntax:
+whois <websiteName>
+Example:
+whois javatpoint.com
+4.dig
+dig command stands for Domain Information Groper. It is used for retrieving information about
+DNS name servers. It is basically used by network administrators. It is used for verifying and
+troubleshooting DNS problems and to perform DNS lookups.
+Syntax:
+
+dig [server] [name] [type]
+
+dig geeksforgeeks.org
+
+5.ping :
+Ping (Packet Internet Groper) command is the best way to test connectivity
+between two nodes. Whether it is Local Area Network (LAN) or Wide Area
+Network (WAN).
+the ping command is used to ensure that a computer can communicate to a specified
+device over the network. The pings command sends Internet Control Message
+Protocol(ICMP) Echo Request messages in the form of packets to the destination
+computer and waits in order to get the response back. Once the packets are received
+by the destined computer, it starts sending the packets back. This command keeps
+executing until it si interrupted.
+Ping uses ICMP (Internet Control Message Protocol) to communicate to other
+devices.
+ping command provides details such as:  number of packets transmitted
+number of packets received
+time taken by the packet to return
+ping command in generally used for the following purposes:  measuring the time taken by the packets to return to determine the speed of the
+connection
+to make sure that the network connection between the host and the destined
+computer can be established
+Example:  ping google.com
+ping 216.58.203.142
+6. traceroute :
+This utility uses the ICMP protocol and finds the hops involved in reading the destination
+server. It also shows the time it takes between hops. This command is used to get the route
+of a packet. i.e. to determine the path along which a packet travels. It also returns the
+number of hops taken by the packet to reach the destination. This command prints to the
+console, a list of hosts through which the packet travels in order to the destination.
+Example:
+traceroute www.google.com
+traceroute 4.2.2.2
+
+-4 Option: Use ip version 4 i.e. use IPv4
+Syntax:
+traceroute -4 google.com
+-4 Option: Use ip version 6 i.e. use IPv6
+Syntax:
+traceroute -6 google.com
+
+7. nslookup:
+nslookup command queries the DNS in order to fetch the IP address or the domain
+name from DNS records.
+Example:
+nslookup www.facebook.com
+8. route:
+route command also shows and manipulates the ip routing table
+To see the default routing table in Linux, type the following command.
+# route
+
+9. host:
+host command is used to find a domain name associated with the IP address or find an
+IP address associated with the domain name. The returned IP address is either IPv4 or
+IPv6.
+Example:
+host www.google.com
+host 31.13.78.35
+
+10. hostname To check and set the hostname of the server.
+Example:
+hostname
+11. arp:
+ARP(Address Resolution Protocol) command is used to display and modify
+ARP cache, which contains the mapping of IP address to MAC address.
+
+The system’s TCP/IP stack uses ARP in order to determine the MAC
+address associated with an IP address.
+ARP (Address Resolution Protocol) is useful to view/add the contents of the
+kernel’s ARP tables. To see the default table use the command as.
+# arp -e
+

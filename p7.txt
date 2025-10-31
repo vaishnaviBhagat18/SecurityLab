@@ -1,0 +1,64 @@
+7.Download and install Nmap. Use it with different options to scan open ports,perform OS, fingerprinting, do a ping scan, tcp port scan, udp port scan
+
+1. How to Install Nmap
+On Linux (Ubuntu/Debian-based)
+sudo apt update
+sudo apt install nmap -y OR sudo apt-get install nmap
+2. For version detection:
+nmap -sV <target-host's URL or IP>
+3. To scan a System with Hostname and IP address. First, Scan using Hostname
+nmap www.geeksforgeeks.org
+Now let’s Scan using IP Address
+nmap 172.217.27.174
+4. To scan using “-v” option: It is used to get more detailed information about the
+remote machines. nmap -v www.geeksforgeeks.org
+5.To scan multiple hosts: We can scan multiple hosts by writing IP addresses or
+hostnames with nmap. nmap 103.76.228.244 157.240.198.35 172.217.27.174
+6.To scan whole subnet: We can scan a whole subnet or IP range with nmap by
+providing “*” with it. It will scan a whole subnet and give the information about
+those hosts which are Up in the Network. nmap 103.76.228.*
+7.To scan specific range of IP address: We can specify the range of IP addresses. This command will scan IP address 192.168.29.1 to 192.168.29.20 . nmap 192.168.29.1-20
+
+8.To scan to detect firewall settings: Detecting firewall settings can be useful
+during penetration testing and vulnerability scans. To detect it we use “-sA” option. This will provide you with information about firewall being active on the host. It
+uses an ACK scan to receive the information. sudo nmap -sA 103.76.228.244
+9.Here -sS flag is used for TCP SYN Scan, Which is a stealthy and efficient
+method of scanning for open ports on a target system. sudo nmap -sS <Domain Name>
+10. The “-sn” flag is used with nmap to perform a ping scan, which sends
+ICMP requests to a target host or network to determine hosts is up or not. This checks which devices are alive in the network without scanning ports. nmap -sn <Domain Name>
+sudo nmap -sU <domain Name> ----> (UDP)
+11.The “-p” flag is used with nmap to perform scan on a specific port or
+range of ports. ( In our case it will scan port 80,443 and 21 )
+nmap -p 80 443 21 <Domain Name>
+12.We can also specify the range of ports to scan on a network. ( In this case it
+will scan all the ports in the range of 1 to 80 )
+nmap -p 1-80 <Domain Name>
+13.Here -A indicates aggressive, it will give us extra information, like OS
+detection (-O), version detection, script scanning (-sC), and traceroute (–
+traceroute). It even provides a lot of valuable information about the host. nmap -A <Domain Name>
+14.Using this command we can discover the target hosting service or identify
+additional targets according to our needs for quickly tracing the path. nmap --trace out <Domain Name>
+15. Here it will display the operating system sudo nmap -O <Domain Name>
+
+
+
+
+
+Commonly Used Nmap Commands
+No.	Command	Description
+1	nmap -sV <target>	Version detection (finds service versions).
+2	nmap www.geeksforgeeks.org	Scan using hostname.
+3	nmap 172.217.27.174	Scan using IP address.
+4	nmap -v www.geeksforgeeks.org	Verbose scan (more details).
+5	nmap 103.76.228.244 157.240.198.35 172.217.27.174	Scan multiple hosts.
+6	nmap 103.76.228.*	Scan whole subnet (detect live hosts).
+7	nmap 192.168.29.1-20	Scan specific range of IPs.
+8	sudo nmap -sA 103.76.228.244	Detect firewall settings (ACK scan).
+9	sudo nmap -sS <domain>	TCP SYN (stealth) scan.
+10	nmap -sn <domain>	Ping scan (check live hosts only).
+11	sudo nmap -sU <domain>	UDP port scan.
+12	nmap -p 80 443 21 <domain>	Scan specific ports.
+13	nmap -p 1-80 <domain>	Scan port range 1–80.
+14	nmap -A <domain>	Aggressive scan (OS, version, traceroute, script).
+15	sudo nmap -O <domain>	Detect operating system.
+16	nmap --traceroute <domain>	Trace route to target.
